@@ -1,25 +1,24 @@
 # base-vm-dev
 
-Config da VM base de desenvolvimento (Arch via archinstall). O JSON no live ISO some no reboot; aqui no host ele fica.
+Duas bases Arch: **host** (máquina física) e **vm-dev** (guest de desenvolvimento). Cada uma tem o seu `archinstall/` para o JSON não sumir com o live ISO.
 
-## archinstall/
+| Pasta | Papel |
+| --- | --- |
+| `vm-dev/` | Guest KVM/libvirt de desenvolvimento — **ativa agora** |
+| `host/` | Host físico — ainda não |
 
-- `user_configuration.json` — layout, bootloader, pacotes, services e pós-comandos (ok no git)
-- `user_credentials.json` — senha root em hash (gitignored; não commitar)
+## vm-dev/
 
-Pós-install (via `packages` / `services` / `custom_commands`):
+- `archinstall/user_configuration.json` — disco, locale, pacotes, services, pós-comandos
+- `archinstall/user_credentials.json` — senha root (gitignored; só no disco local)
 
-- `git`, `openssh`, `qemu-guest-agent`
-- `sshd` e `qemu-guest-agent` habilitados
-- clone de `fabriciogferreira/git` em `/root/fabricio` (home do root no install)
-
-Sem o `creds`, o archinstall abre o menu pedindo Authentication. Para instalar sem surpresa:
+Pós-install atual: `git`, `openssh`, `qemu-guest-agent`; `sshd` + `qemu-guest-agent` enabled; clone de `fabriciogferreira/git` em `/root/fabricio`.
 
 ```bash
 archinstall \
-  --config-url 'https://raw.githubusercontent.com/fabriciogferreira/base-vm-dev/main/archinstall/user_configuration.json' \
+  --config-url 'https://raw.githubusercontent.com/fabriciogferreira/base-vm-dev/main/vm-dev/archinstall/user_configuration.json' \
   --creds /root/user_credentials.json \
   --silent
 ```
 
-O `user_credentials.json` precisa existir na guest (`/root/`). No host ele fica em `archinstall/user_credentials.json` (fora do git). Se sumir no live, copie de novo do host antes do comando acima.
+O `user_credentials.json` precisa estar em `/root/` na guest (cópia do arquivo local deste repo). Sem ele o `--silent` para na Authentication.

@@ -1,2 +1,5 @@
-archinstall/user_credentials.json
-archinstall/*credentials*
+# Senhas / hashes de auth — nunca no remoto
+vm-dev/archinstall/user_credentials.json
+vm-dev/archinstall/*credentials*
+host/**/user_credentials.json
+host/**/*credentials*
