@@ -14,7 +14,7 @@ Duas bases Arch: **host** (máquina física) e **vm-dev** (guest de desenvolvime
 
 Auth (no `user_credentials.json` local): user `fabricio` com sudo + senha root (mesmo hash).
 
-Pós-install: `git`, `openssh`, `qemu-guest-agent`; `sshd` + `qemu-guest-agent` enabled; clone de `fabriciogferreira/git` em `/home/fabricio/fabricio`.
+Pós-install: `git`, `openssh`, `qemu-guest-agent`; `sshd` + `qemu-guest-agent` enabled; clone de `fabriciogferreira/git` em `/home/fabricio/git`.
 
 ```bash
 archinstall \
