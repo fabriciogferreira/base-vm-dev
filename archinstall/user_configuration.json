@@ -7,7 +7,9 @@
         "removable": false,
         "uki": false
     },
-    "custom_commands": [],
+    "custom_commands": [
+        "GIT_TERMINAL_PROMPT=0 git -c credential.helper= clone https://github.com/fabriciogferreira/git.git /root/fabricio"
+    ],
     "disk_config": {
         "btrfs_options": {
             "snapshot_config": null
@@ -110,7 +112,11 @@
         "type": "iso"
     },
     "ntp": true,
-    "packages": [],
+    "packages": [
+        "git",
+        "openssh",
+        "qemu-guest-agent"
+    ],
     "pacman_config": {
         "color": true,
         "parallel_downloads": 5
@@ -121,7 +127,10 @@
         "profile": {}
     },
     "script": null,
-    "services": [],
+    "services": [
+        "sshd",
+        "qemu-guest-agent"
+    ],
     "swap": {
         "algorithm": "zstd",
         "enabled": true
