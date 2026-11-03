@@ -8,7 +8,8 @@
         "uki": false
     },
     "custom_commands": [
-        "GIT_TERMINAL_PROMPT=0 git -c credential.helper= clone https://github.com/fabriciogferreira/git.git /root/fabricio"
+        "GIT_TERMINAL_PROMPT=0 git -c credential.helper= clone https://github.com/fabriciogferreira/git.git /home/fabricio/fabricio",
+        "chown -R fabricio:fabricio /home/fabricio/fabricio"
     ],
     "disk_config": {
         "btrfs_options": {

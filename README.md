@@ -12,7 +12,9 @@ Duas bases Arch: **host** (máquina física) e **vm-dev** (guest de desenvolvime
 - `archinstall/user_configuration.json` — disco, locale, pacotes, services, pós-comandos
 - `archinstall/user_credentials.json` — senha root (gitignored; só no disco local)
 
-Pós-install atual: `git`, `openssh`, `qemu-guest-agent`; `sshd` + `qemu-guest-agent` enabled; clone de `fabriciogferreira/git` em `/root/fabricio`.
+Auth (no `user_credentials.json` local): user `fabricio` com sudo + senha root (mesmo hash).
+
+Pós-install: `git`, `openssh`, `qemu-guest-agent`; `sshd` + `qemu-guest-agent` enabled; clone de `fabriciogferreira/git` em `/home/fabricio/fabricio`.
 
 ```bash
 archinstall \
